@@ -1,0 +1,27 @@
+{#def request #}
+<div class="navbar bg-base-100">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <label for="my-drawer-2" class="drawer-button lg:hidden">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+          </svg>
+        </label>
+      </div>
+
+    </div>
+    <a class="btn btn-ghost text-xl" href="/"><img src="https://github.com/thornewolf/fastapi-tailwind-database-openai/assets/16554266/cd161fca-f72d-46a3-a23f-7d0461102488" class="h-10 w-10" alt="logo">
+      Website Template
+    </a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+  </div>
+  <div class="navbar-end">
+    {% if request.session.get('user') %}
+    <a class="btn btn-ghost mx-2 font-light btn-sm" href="/logout">Sign Out</a>
+    {% else %}
+    <a class="btn btn-ghost mx-2 font-light btn-sm" href="/login">Sign In</a>
+    {% endif %}
+  </div>
+</div>

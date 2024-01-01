@@ -1,0 +1,10 @@
+{#def request, users #}
+<Layout request={request} title="Users">
+    <div>Hello!</div>
+    {{users}}
+    {% for user in users %}
+    <div>
+        {{user}}
+    </div>
+    {% endfor %}
+</Layout>

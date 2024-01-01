@@ -1,0 +1,15 @@
+{#def request, title #}
+<Layout request={request}>
+    <div class="flex flex-col gap-2">
+        <Accordian>
+            <AccordianItem title="What is Pines?">
+                Pines is a UI library built for AlpineJS and TailwindCSS.
+            </AccordianItem>
+            <AccordianItem title="test">
+                Hello
+            </AccordianItem>
+        </Accordian>
+        <CopyToClipboard copyText="Hello World" />
+        <Textarea placeholder="placeholder content">default</Textarea>
+    </div>
+</Layout>

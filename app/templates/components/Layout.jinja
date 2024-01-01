@@ -1,0 +1,68 @@
+{#def request,title='' #}
+<!doctype html>
+<html lang="en" data-theme="lofi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}}</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.4.24/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="Site Title" />
+  <meta name="twitter:creator" content="Site Creator" />
+  <meta name="twitter:title" content="{{title}}" />
+  <meta name="twitter:description" content="{% block description %}{% endblock %}" />
+  {# {% if embed_image_path %}
+  <meta name="twitter:image" content="{{ url_for('static', path=embed_image_path if embed_image_path else 'images/embed.png') }}" />
+  {% endif %} #}
+
+  <script src="https://unpkg.com/htmx.org@1.8.5"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <script src="https://unpkg.com/hyperscript.org@0.9.8"></script>
+
+  {% if ENABLE_LIT %}
+  <script type="module" src="{{ url_for('static', path='js/components.js' )}}">
+    {% endif %}
+
+
+    {% if ENABLE_TRACKING %}
+    <Tracking />
+    {% endif %}
+
+    {% block header %}
+    {% endblock %}
+</head >
+
+      <body class="flex min-h-screen flex-col">
+        {# Nav #}
+
+        {# Content #}
+        <main class="min-h-screen">
+          <div class="drawer lg:drawer-open">
+            <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+            <div class="drawer-content flex flex-col">
+              <Navbar request={request} />
+              <div class="m-8">
+                {{ content }}
+              </div>
+
+            </div>
+            <div class="drawer-side border-r border-base-200">
+              <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+              <ul class="menu w-60 min-h-full border-r-1 text-base-content">
+                {% for icon,name,ref in [('🏠', 'Home', '/'), ('👤', 'Users', '/users'), ('🧠', 'Groups', '/groups'), ('🗓️', 'Calendar', '/calendar'), ('📊', 'Reports', '/reports'), ('⚙️', 'Settings', '/settings')] %}
+                <li class=""><a class="my-0 py-1" href="{{ref}}"><span class="border-base-200 rounded-md w-7 h-7 shadow-sm border flex place-content-center items-center">{{ icon }}</span>{{ name }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </body>
+
+</html >

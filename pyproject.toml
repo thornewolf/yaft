@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "fastapi-site"
+version = "0.1.0"
+description = ""
+authors = ["ThorneWolf <thornecanyon@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.108.0"
+sqlmodel = "^0.0.14"
+click = "^8.1.7"
+uvicorn = {extras = ["standard"], version = "^0.25.0"}
+itsdangerous = "^2.1.2"
+authlib = "^1.3.0"
+jinjax = "^0.29"
+python-dotenv = "^1.0.0"
+httpx = "^0.26.0"
+python-multipart = "^0.0.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
