@@ -11,7 +11,7 @@
       </div>
 
     </div>
-    <a class="btn btn-ghost text-xl" href="/"><img src="https://github.com/thornewolf/fastapi-tailwind-database-openai/assets/16554266/cd161fca-f72d-46a3-a23f-7d0461102488" class="h-10 w-10" alt="logo">
+    <a class="btn btn-ghost text-xl" href="/">
       Website Template
     </a>
   </div>
@@ -19,9 +19,9 @@
   </div>
   <div class="navbar-end">
     {% if request.session.get('user') %}
-    <a class="btn btn-ghost mx-2 font-light btn-sm" href="/logout">Sign Out</a>
+    <a class="btn btn-ghost mx-2 btn-sm" href="/logout">Sign Out</a>
     {% else %}
-    <a class="btn btn-ghost mx-2 font-light btn-sm" href="/login">Sign In</a>
+    <a class="btn btn-ghost mx-2 btn-sm" href="/login">Sign In</a>
     {% endif %}
   </div>
 </div>

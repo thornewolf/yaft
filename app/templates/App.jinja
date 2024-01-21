@@ -1,4 +1,4 @@
 {#def request #}
-<AppLayout request={request}>
-
-</AppLayout>
+<Layout request={request}>
+    Hello, {{request.session.user.userinfo.name}}!
+</Layout>
